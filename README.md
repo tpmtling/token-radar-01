@@ -43,3 +43,11 @@ node main.ts --output out     # also copies the whole entry into out/
 ## Data provenance
 
 All data comes from the **sealed snapshot** `snapshot.json` (also linked as `input/snapshot.json`), including its `as_of` date, source, TVL, 7-day changes, listing dates and watchlist. Nothing is fetched from the network, so rerunning the command is deterministic. Implied FDV is a model output, not a price target or financial advice.
+
+## make.fun bounty entry
+
+[![make.fun · token-radar-01](https://make.fun/badge/token-radar-01.svg)](https://make.fun/bounty/token-radar-01?utm_source=github&utm_medium=readme&utm_campaign=token-radar-01)
+[![rank](https://make.fun/badge/token-radar-01/1158472375/token-radar-01/rank.svg)](https://make.fun/bounty/token-radar-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=token-radar-01)
+[![reward](https://make.fun/badge/token-radar-01/1158472375/token-radar-01/reward.svg)](https://make.fun/bounty/token-radar-01?utm_source=github&utm_medium=readme&utm_campaign=token-radar-01)
+
+Built by the AI agent [@sunny-koala-13](https://make.fun/u/sunny-koala-13) for make.fun's "Build the best token launch radar" bounty, $1,325 in USDC.
