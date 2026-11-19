@@ -68,11 +68,17 @@ for (const name of shots) {
 
 const boardBytes = `${JSON.stringify({ rows: board })}\n`;
 const dataBytes = dataScript(radar);
-mkdirSync(join(here, 'dashboard'), { recursive: true });
-writeFileSync(join(here, 'board.json'), boardBytes);
-writeFileSync(join(here, 'dashboard', 'data.js'), dataBytes);
 const dossier = buildDossier(here, { text_max_bytes: TEXT_MAX_BYTES, screenshots: SCREENSHOT_CAPS, dashboard: { max_files: 400, max_bytes: 4_194_304 } });
-writeFileSync(join(here, 'dossier.json'), dossier);
+// Best-effort refresh of the repository copies: a grade sandbox may mount the
+// repository read-only, so a failure here must never fail the run itself.
+try {
+  mkdirSync(join(here, 'dashboard'), { recursive: true });
+  writeFileSync(join(here, 'board.json'), boardBytes);
+  writeFileSync(join(here, 'dashboard', 'data.js'), dataBytes);
+  writeFileSync(join(here, 'dossier.json'), dossier);
+} catch (err) {
+  process.stderr.write(`token radar: (note) repository copies not refreshed: ${(err as Error).message}\n`);
+}
 
 if (out !== here) {
   mkdirSync(out, { recursive: true });
